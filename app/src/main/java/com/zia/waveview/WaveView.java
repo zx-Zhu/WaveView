@@ -1,5 +1,6 @@
 package com.zia.waveview;
 
+import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
@@ -17,9 +18,6 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 
 import static android.content.Context.SENSOR_SERVICE;
 
-/**
- * Created by zia on 2017/9/20.
- */
 
 public class WaveView extends android.support.v7.widget.AppCompatTextView implements SensorEventListener {
 
@@ -129,6 +127,27 @@ public class WaveView extends android.support.v7.widget.AppCompatTextView implem
             }
         });
         animator.start();
+        animator.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                animation.cancel();
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
     }
 
 
